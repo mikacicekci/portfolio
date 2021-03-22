@@ -1,21 +1,17 @@
 <template>
   <div id="footer">
-    <table style="height: auto; width: 100%; text-align: center">
+    <table style="margin: 0 auto">
       <tr>
-        <td>
-          <div
-            v-for="(item, index) in items"
-            :key="item"
-            style="display: inline-block; position: relative"
-          >
-            <div class="navItem navSeparator" v-if="index">-</div>
-            <div
-              :class="['navItem navClickable', active == item ? 'navActive' : '']"
-              v-text="item.label"
-              @click="click(item, index * 2)"
-            />
-          </div>
-        </td>
+        <template v-for="(item, index) in items" :key="item">
+          <tr class="navItem navSeparator" v-if="index">
+            -
+          </tr>
+          <tr
+            :class="['navItem navClickable', active == item ? 'navActive' : '']"
+            v-text="item.label"
+            @click="click(item, index * 2)"
+          />
+        </template>
       </tr>
     </table>
   </div>
@@ -100,7 +96,7 @@ export default {
       }
     },
     click(item, index) {
-      this.active = item
+      this.active = item;
       this.$emit("updateSelected", item);
       this.animate(index);
     },
@@ -147,8 +143,10 @@ export default {
   cursor: pointer;
 }
 
-.navActive, .navClickable:hover {
+.navActive,
+.navClickable:hover {
   border-bottom: 2px solid black;
+  line-height: 48px;
 }
 
 #gamesnav {
