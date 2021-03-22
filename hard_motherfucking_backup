@@ -1,0 +1,1361 @@
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 9961bd3..0000000
+--- a/README.md
++++ /dev/null
+@@ -1,24 +0,0 @@
+-# vue-app
+-
+-## Project setup
+-```
+-npm install
+-```
+-
+-### Compiles and hot-reloads for development
+-```
+-npm run serve
+-```
+-
+-### Compiles and minifies for production
+-```
+-npm run build
+-```
+-
+-### Lints and fixes files
+-```
+-npm run lint
+-```
+-
+-### Customize configuration
+-See [Configuration Reference](https://cli.vuejs.org/config/).
+diff --git a/babel.config.js b/babel.config.js
+deleted file mode 100644
+index e955840..0000000
+--- a/babel.config.js
++++ /dev/null
+@@ -1,5 +0,0 @@
+-module.exports = {
+-  presets: [
+-    '@vue/cli-plugin-babel/preset'
+-  ]
+-}
+diff --git a/public/Firefox_wallpaper.png b/public/Firefox_wallpaper.png
+deleted file mode 100644
+index 53673ac..0000000
+Binary files a/public/Firefox_wallpaper.png and /dev/null differ
+diff --git a/public/favicon.ico b/public/favicon.ico
+deleted file mode 100644
+index df36fcf..0000000
+Binary files a/public/favicon.ico and /dev/null differ
+diff --git a/public/index.html b/public/index.html
+deleted file mode 100644
+index 4123528..0000000
+--- a/public/index.html
++++ /dev/null
+@@ -1,17 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-  <head>
+-    <meta charset="utf-8">
+-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+-    <title><%= htmlWebpackPlugin.options.title %></title>
+-  </head>
+-  <body>
+-    <noscript>
+-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+-    </noscript>
+-    <div id="app"></div>
+-    <!-- built files will be auto injected -->
+-  </body>
+-</html>
+diff --git a/public/photo.jpg b/public/photo.jpg
+deleted file mode 100644
+index 10e47fe..0000000
+Binary files a/public/photo.jpg and /dev/null differ
+diff --git a/public/profilepic.jpg b/public/profilepic.jpg
+deleted file mode 100644
+index 916ba3b..0000000
+Binary files a/public/profilepic.jpg and /dev/null differ
+diff --git a/src/App.vue b/src/App.vue
+deleted file mode 100644
+index 4671252..0000000
+--- a/src/App.vue
++++ /dev/null
+@@ -1,81 +0,0 @@
+-<template>
+-  <div style="height: 100%">
+-    <h1>Mikail Cicekciler</h1>
+-    <Container :selectedComponent="selected.component" style="height: calc(100% - 162px)"/>
+-    <Menu ref="menu" @updateSelected="updateSelected" style="height: 62px; margin: 10px 0px"/>
+-  </div>
+-</template>
+-
+-<script>
+-
+-import Menu from './components/Menu.vue'
+-import Container from './components/Container.vue'
+-
+-export default {
+-  name: 'App',
+-  components: {
+-    Container,
+-    Menu
+-  },
+-  data() {
+-    return {
+-      selected: "",
+-      items: [{
+-        label: "About me",
+-        component: "Info"
+-      }, {
+-        label: "Curriculum",
+-        component: "Curriculum"
+-      }, {
+-        label: "Home",
+-        component: "WaveAnimation"
+-      }, {
+-        label: "Contact",
+-        component: "Contact"
+-      }, {
+-        label: "Snake",
+-        component: "Snake"
+-      }
+-    ]
+-    }
+-  },
+-  methods: {
+-    updateSelected(selected) {
+-      this.selected = selected;
+-    }
+-  }
+-}
+-
+-</script>
+-
+-<style>
+-* {
+-  margin: 0;
+-}
+-
+-#app {
+-  font-family: Avenir, Helvetica, Arial, sans-serif;
+-  -webkit-font-smoothing: antialiased;
+-  -moz-osx-font-smoothing: grayscale;
+-  height: 100%;
+-}
+-
+-body, html {
+-  height: 100%;
+-  background-image: url('../public/Firefox_wallpaper.png');
+-  background-repeat: no-repeat;
+-  background-size: cover;
+-}
+-
+-h1 {
+-  height: 80px;
+-  font-family: "Lucida Console", Monaco, monospace;
+-  font-weight: bold;
+-  text-align: center;
+-  color: white;
+-  vertical-align: middle;
+-  font-size: 50px;
+-  line-height: 80px;
+-}
+-
+-</style>
+\ No newline at end of file
+diff --git a/src/assets/curriculum_mikailcicekciler.pdf b/src/assets/curriculum_mikailcicekciler.pdf
+deleted file mode 100644
+index fa8c70c..0000000
+Binary files a/src/assets/curriculum_mikailcicekciler.pdf and /dev/null differ
+diff --git a/src/assets/cv_mikailcicekciler_english.pdf b/src/assets/cv_mikailcicekciler_english.pdf
+deleted file mode 100644
+index 25c29a7..0000000
+Binary files a/src/assets/cv_mikailcicekciler_english.pdf and /dev/null differ
+diff --git a/src/assets/cv_mikailcicekciler_francais.pdf b/src/assets/cv_mikailcicekciler_francais.pdf
+deleted file mode 100644
+index 08b89f6..0000000
+Binary files a/src/assets/cv_mikailcicekciler_francais.pdf and /dev/null differ
+diff --git a/src/assets/cv_mikailcicekciler_turkce.pdf b/src/assets/cv_mikailcicekciler_turkce.pdf
+deleted file mode 100644
+index 2c73a51..0000000
+Binary files a/src/assets/cv_mikailcicekciler_turkce.pdf and /dev/null differ
+diff --git a/src/assets/logo.png b/src/assets/logo.png
+deleted file mode 100644
+index f3d2503..0000000
+Binary files a/src/assets/logo.png and /dev/null differ
+diff --git a/src/assets/styles/fileicon.css b/src/assets/styles/fileicon.css
+deleted file mode 100644
+index c980e11..0000000
+--- a/src/assets/styles/fileicon.css
++++ /dev/null
+@@ -1,141 +0,0 @@
+-
+-.file-icon {
+-  font-family: Arial, Tahoma, sans-serif;
+-  font-weight: 300;
+-  display: inline-block;
+-  width: 24px;
+-  height: 32px;
+-  /*
+-  Commented customly to adapt style
+-
+-  background: #018fef;
+-  */
+-  position: relative;
+-  border-radius: 2px;
+-  text-align: left;
+-  -webkit-font-smoothing: antialiased;
+-}
+-.file-icon::before {
+-  display: block;
+-  content: "";
+-  position: absolute;
+-  top: 0;
+-  right: 0;
+-  width: 0;
+-  height: 0;
+-  border-bottom-left-radius: 2px;
+-  border-width: 5px;
+-  border-style: solid;
+-  border-color: #fff #fff rgba(255,255,255,.35) rgba(255,255,255,.35);
+-}
+-.file-icon::after {
+-  display: block;
+-  content: attr(data-type);
+-  position: absolute;
+-  bottom: 0;
+-  left: 0;
+-  font-size: 10px;
+-  color: #fff;
+-  text-transform: lowercase;
+-  width: 100%;
+-  padding: 2px;
+-  white-space: nowrap;
+-  overflow: hidden;
+-}
+-/* fileicons */
+-.file-icon-xs {
+-  width: 12px;
+-  height: 16px;
+-  border-radius: 2px;
+-}
+-.file-icon-xs::before {
+-  border-bottom-left-radius: 1px;
+-  border-width: 3px;
+-}
+-.file-icon-xs::after {
+-  content: "";
+-  border-bottom: 2px solid rgba(255,255,255,.45);
+-  width: auto;
+-  left: 2px;
+-  right: 2px;
+-  bottom: 3px;
+-}
+-.file-icon-sm {
+-  width: 18px;
+-  height: 24px;
+-  border-radius: 2px;
+-}
+-.file-icon-sm::before {
+-  border-bottom-left-radius: 2px;
+-  border-width: 4px;
+-}
+-.file-icon-sm::after {
+-  font-size: 7px;
+-  padding: 2px;
+-}
+-.file-icon-lg {
+-  width: 48px;
+-  height: 64px;
+-  border-radius: 3px;
+-}
+-.file-icon-lg::before {
+-  border-bottom-left-radius: 2px;
+-  border-width: 8px;
+-}
+-.file-icon-lg::after {
+-  font-size: 16px;
+-  padding: 4px 6px;
+-}
+-.file-icon-xl {
+-  width: 96px;
+-  height: 128px;
+-  border-radius: 4px;
+-}
+-.file-icon-xl::before {
+-  border-bottom-left-radius: 4px;
+-  border-width: 16px;
+-}
+-.file-icon-xl::after {
+-  font-size: 24px;
+-  padding: 4px 10px;
+-}
+-/* fileicon.types */
+-.file-icon[data-type=zip],
+-.file-icon[data-type=rar] {
+-  background: #acacac;
+-}
+-.file-icon[data-type^=doc] {
+-  background: #307cf1;
+-}
+-.file-icon[data-type^=xls] {
+-  background: #0f9d58;
+-}
+-.file-icon[data-type^=ppt] {
+-  background: #d24726;
+-}
+-.file-icon[data-type=pdf] {
+-  background: #e13d34;
+-}
+-.file-icon[data-type=txt] {
+-  background: #5eb533;
+-}
+-.file-icon[data-type=mp3],
+-.file-icon[data-type=wma],
+-.file-icon[data-type=m4a],
+-.file-icon[data-type=flac] {
+-  background: #8e44ad;
+-}
+-.file-icon[data-type=mp4],
+-.file-icon[data-type=wmv],
+-.file-icon[data-type=mov],
+-.file-icon[data-type=avi],
+-.file-icon[data-type=mkv] {
+-  background: #7a3ce7;
+-}
+-.file-icon[data-type=bmp],
+-.file-icon[data-type=jpg],
+-.file-icon[data-type=jpeg],
+-.file-icon[data-type=gif],
+-.file-icon[data-type=png] {
+-  background: #f4b400;
+-}
+\ No newline at end of file
+diff --git a/src/components/Background.vue b/src/components/Background.vue
+deleted file mode 100644
+index 6daa5db..0000000
+--- a/src/components/Background.vue
++++ /dev/null
+@@ -1,35 +0,0 @@
+-<template>
+-  <div id="outsideContainer">
+-    <div id="insideContainer">
+-      <slot></slot>
+-    </div>
+-  </div>
+-</template>
+-
+-<script>
+-
+-export default {
+-  name: "Background"
+-};
+-</script>
+-
+-<style>
+-#outsideContainer {
+-  width: 80%;
+-  height: 80%;
+-  position: relative;
+-  padding-left: 10%;
+-  padding-top: 8vh;
+-  color: white;
+-  font-size: 18px;
+-  font-weight: 12em;
+-  font-family: poppins,Helvetica,sans-serif;
+-  line-height: 1.65em;
+-}
+-
+-#insideContainer {
+-  width: 100%; 
+-  height: 100%; 
+-  background-color: rgba(0, 0, 0, 0.8);
+-}
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Contact.vue b/src/components/Contact.vue
+deleted file mode 100644
+index 6b63239..0000000
+--- a/src/components/Contact.vue
++++ /dev/null
+@@ -1,58 +0,0 @@
+-<template>
+-    <background>
+-    </background>
+-</template>
+-
+-<script>
+-
+-import Background from './Background.vue'
+-
+-export default {
+-  name: "Contact",
+-  data() {
+-    return {
+-    }
+-  },
+-  components: {
+-    Background
+-  },
+-};
+-</script>
+-
+-<style>
+-#infoContact {
+-  position: relative;
+-  float: left;
+-  width: 35%;
+-  height: 90%;
+-  margin-left: 5%;
+-  margin-top: 5vh;
+-}
+-
+-#infoContact img {
+-  width: 70%;
+-  margin-left: 15%;
+-  border-radius: 50%;
+-  border: 2px solid white;
+-  /*box-shadow: 0px 0px 15px white;*/
+-}
+-
+-#infoDescription {
+-  position: relative;
+-  float: left;
+-  width: 50%;
+-  height: 90%;
+-  margin-left: 5%;
+-  margin-top: 5vh;
+-  overflow: auto;
+-}
+-
+-#infoDescription p {
+-  color: white;
+-  font-size: 18px;
+-  font-weight: 12em;
+-  font-family: poppins,Helvetica,sans-serif;
+-  line-height: 1.65em;
+-}
+-
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Container.vue b/src/components/Container.vue
+deleted file mode 100644
+index 5ca3876..0000000
+--- a/src/components/Container.vue
++++ /dev/null
+@@ -1,38 +0,0 @@
+-<template>
+-  <div id="container">
+-      <component v-bind:is="selectedComponent"></component>
+-  </div>
+-</template>
+-
+-<script>
+-
+-import WaveAnimation from '@/components/WaveAnimation.vue'
+-import Snake from '@/components/Snake.vue'
+-import Info from '@/components/Info.vue'
+-import Curriculum from '@/components/Curriculum.vue'
+-import Contact from '@/components/Contact.vue'
+-
+-export default {
+-  name: 'Container',
+-  components: {
+-    WaveAnimation,
+-    Snake,
+-    Curriculum,
+-    Info,
+-    Contact
+-  },
+-  props: ["selectedComponent"]
+-}
+-
+-</script>
+-
+-<style>
+-
+-#container {
+-  /*border-top:    1px solid  #000000;
+-  border-bottom: 1px solid #000000;*/
+-  width: 100%;
+-  height: 100%;
+-}
+-
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Curriculum.vue b/src/components/Curriculum.vue
+deleted file mode 100644
+index cc9e9f2..0000000
+--- a/src/components/Curriculum.vue
++++ /dev/null
+@@ -1,163 +0,0 @@
+-<template>
+-  <background>
+-    <div id="curriculumContainer">
+-      <embed id="pdfViewer" :src="curriculumSrc" type="application/pdf" />
+-      <div id="pdfList">
+-        <div v-for="item in items" :key="item" class="pdfItemContainer">
+-          <div
+-            :class="[
+-              'file-icon file-icon-xl',
+-              'pdfItem',
+-              active == item ? 'active' : '',
+-            ]"
+-            :data-type="item.datatype"
+-            @click="setActive(item)"
+-          ></div>
+-        </div>
+-      </div>
+-    </div>
+-  </background>
+-</template>
+-
+-<script>
+-import Background from "./Background.vue";
+-
+-export default {
+-  name: "Curriculum",
+-  data() {
+-    return {
+-      active: undefined,
+-      curriculumSrc: require("./../assets/cv_mikailcicekciler_english.pdf"),
+-      items: [
+-        {
+-          label: "Français",
+-          src: require("./../assets/cv_mikailcicekciler_francais.pdf"),
+-          datatype: "french",
+-        },
+-        {
+-          label: "English",
+-          src: require("./../assets/cv_mikailcicekciler_english.pdf"),
+-          datatype: "english",
+-        },
+-        {
+-          label: "Turkçe",
+-          src: require("./../assets/cv_mikailcicekciler_turkce.pdf"),
+-          datatype: "turkish",
+-        },
+-      ],
+-    };
+-  },
+-  methods: {
+-    setActive(item) {
+-      this.active = item;
+-      this.updateCurriculumSrc(item.src);
+-    },
+-    updateCurriculumSrc(src) {
+-      this.curriculumSrc = src;
+-    },
+-  },
+-  mounted() {
+-    this.setActive(this.items[0]);
+-  },
+-  components: {
+-    Background,
+-  },
+-};
+-</script>
+-
+-<style>
+-#curriculumContainer {
+-  width: 100%;
+-  height: 100%;
+-}
+-
+-#pdfViewer {
+-  float: left;
+-  width: calc(100% - 160px);
+-  height: 100%;
+-}
+-
+-#pdfList {
+-  float: right;
+-  width: 160px;
+-  height: 100%;
+-  overflow: auto;
+-  background: white;
+-}
+-
+-.pdfItemContainer {
+-  width: 96px;
+-  height: 128px;
+-  margin: 16px 32px;
+-}
+-
+-.pdfItem {
+-  width: 100%;
+-  height: 100%;
+-  float: left;
+-  transition-duration: 1s;
+-}
+-
+-.pdfItem:not(.active) {
+-  background: #8e44ad;
+-  transform: rotate3d(-2, 1, 0, 0deg);
+-  -webkit-transform: rotate3d(-2, 1, 0, 0deg);
+-}
+-
+-.active {
+-  background: #f4b400;
+-  transform: rotate3d(-2, 1, 0, -360deg);
+-  -webkit-transform: rotate3d(-2, 1, 0, -360deg);
+-}
+-
+-.pdfItemContainer:hover .pdfItem:not(.active) {
+-  background: #f4b400;
+-  transform: rotate3d(-2, 1, 0, -340deg);
+-  -webkit-transform: rotate3d(-2, 1, 0, -340deg);
+-}
+-
+-/*! fileicon.css v0.1.1 | MIT License | github.com/picturepan2/fileicon.css */
+-/* Code imported from fileicon.css. MODIFIED! */
+-
+-.file-icon {
+-  font-family: Arial, Tahoma, sans-serif;
+-  font-weight: 300;
+-  width: 96px;
+-  height: 128px;
+-  display: inline-block;
+-  position: relative;
+-  border-radius: 4px;
+-  text-align: left;
+-  -webkit-font-smoothing: antialiased;
+-}
+-
+-.file-icon::before {
+-  display: block;
+-  content: "";
+-  position: absolute;
+-  top: 0;
+-  right: 0;
+-  width: 0;
+-  height: 0;
+-  
+-  border-bottom-left-radius: 4px;
+-  border-width: 16px;
+-  border-style: solid;
+-  border-color: #fff #fff rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.35);
+-}
+-
+-.file-icon::after {
+-  display: block;
+-  content: attr(data-type);
+-  position: absolute;
+-  bottom: 0;
+-  left: 0;
+-  color: #fff;
+-  text-transform: lowercase;
+-  width: 100%;
+-  font-size: 24px;
+-  padding: 4px 10px;
+-  white-space: nowrap;
+-  overflow: hidden;
+-}
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Info.vue b/src/components/Info.vue
+deleted file mode 100644
+index 27f69b4..0000000
+--- a/src/components/Info.vue
++++ /dev/null
+@@ -1,86 +0,0 @@
+-<template>
+-    <background>
+-      <div id="infoContact">
+-        <table>
+-          <tr><img :src="picture"></tr>
+-          <tr><th>{{ age }}</th></tr>
+-          <tr><th>{{ residency }}</th></tr>
+-          <tr><th>{{ number }}</th></tr>
+-          <tr><th>{{ mail }}</th></tr>
+-        </table>
+-      </div>
+-      <div id="infoDescription">
+-        <p>
+-          Hello, <br><br>
+-          My name is Mikail Cicekciler, I am {{ age }} and I live in Istanbul. I have grown up in this city and inhabit it once more after 6 years spent studying 
+-          in Marseille in the south of France. I have two separate bachelor degrees, one in computer sciences and one in history of sciences. Since my return in Turkey, I have worked 
+-          as a software engineer at Airties and I am currently performing an intership at Kasar & Dual, the family textile company. I enjoy coding as a hobby, 
+-          along with all sorts of short manual projects. I am passionated by music and books and enjoy cinema and travels a lot. My life is dedicated to friendships and 
+-          to beautiful things. I try to live in a sober way and do my best to fulfill my responsibilities. I operate on linux systems for I believe the open-source philosophy 
+-          is only valid and socially desirable way. I hope the internet will one day be a free, delocated, sober and elegant place that will fully act as a support to enlighted citizenships. 
+-          As this is not meant to happen anytime soon nor much of the good things that could be wished for society, I can be defined as a cynical and disapointed human swimming 
+-          lost in the beautiful chaos of life. <br><br> 
+-          I wish you a pleasant visit and hope to hear from you! 
+-        </p>
+-      </div>
+-    </background>
+-</template>
+-
+-<script>
+-
+-import Background from './Background.vue'
+-
+-export default {
+-  name: "Info",
+-  data() {
+-    return {
+-      age: new Date(Date.now() - new Date(1995,3,21)).getUTCFullYear() - 1970,
+-      number: "+90 534 714 46 77",
+-      mail: "cicekcilerm@gmail.com",
+-      residency: "Istanbul, Turkey",
+-      picture: require("../../public/photo.jpg")
+-    }
+-  },
+-  components: {
+-    Background
+-  },
+-};
+-</script>
+-
+-<style>
+-#infoContact {
+-  position: relative;
+-  float: left;
+-  width: 35%;
+-  height: 90%;
+-  margin-left: 5%;
+-  margin-top: 5vh;
+-}
+-
+-#infoContact img {
+-  width: 70%;
+-  margin-left: 15%;
+-  border-radius: 50%;
+-  border: 2px solid white;
+-  /*box-shadow: 0px 0px 15px white;*/
+-}
+-
+-#infoDescription {
+-  position: relative;
+-  float: left;
+-  width: 50%;
+-  height: 90%;
+-  margin-left: 5%;
+-  margin-top: 5vh;
+-  overflow: auto;
+-}
+-
+-#infoDescription p {
+-  color: white;
+-  font-size: 18px;
+-  font-weight: 12em;
+-  font-family: poppins,Helvetica,sans-serif;
+-  line-height: 1.65em;
+-}
+-
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Menu.vue b/src/components/Menu.vue
+deleted file mode 100644
+index a710165..0000000
+--- a/src/components/Menu.vue
++++ /dev/null
+@@ -1,158 +0,0 @@
+-<template>
+-  <div id="footer">
+-    <table style="height: auto; width: 100%; text-align: center">
+-      <tr>
+-        <td>
+-          <div
+-            v-for="(item, index) in items"
+-            :key="item"
+-            style="display: inline-block; position: relative"
+-          >
+-            <div class="navItem navSeparator" v-if="index">-</div>
+-            <div
+-              :class="['navItem navClickable', active == item ? 'navActive' : '']"
+-              v-text="item.label"
+-              @click="click(item, index * 2)"
+-            />
+-          </div>
+-        </td>
+-      </tr>
+-    </table>
+-  </div>
+-</template>
+-
+-<script>
+-import $ from "jquery";
+-
+-export default {
+-  name: "Menu",
+-  data() {
+-    let maxFontSize = 32;
+-    let navFontSize = 16;
+-    let nbDegrades = 4;
+-    return {
+-      items: [
+-        {
+-          label: "About me",
+-          component: "Info",
+-        },
+-        {
+-          label: "Curriculum",
+-          component: "Curriculum",
+-        },
+-        {
+-          label: "Home",
+-          component: "WaveAnimation",
+-        },
+-        {
+-          label: "Contact",
+-          component: "Contact",
+-        },
+-        {
+-          label: "Snake",
+-          component: "Snake",
+-        },
+-      ],
+-      active: undefined,
+-      curPos: 0,
+-      nbDegrades: nbDegrades,
+-      maxFontSize: maxFontSize,
+-      navFontSize: navFontSize,
+-      navSpace: parseInt((maxFontSize - navFontSize) / nbDegrades),
+-    };
+-  },
+-  mounted() {
+-    let middlePos = Math.floor(this.items.length / 2);
+-    this.click(this.items[middlePos], middlePos * 2);
+-  },
+-  methods: {
+-    setSize(curPos, index, val) {
+-      let that = this;
+-      setTimeout(function () {
+-        for (
+-          var j = -that.nbDegrades * val;
+-          j != (that.nbDegrades + 1) * val;
+-          j += val
+-        ) {
+-          if (curPos + j < 0 || curPos + j >= that.items.length * 2) continue;
+-          $($(".navItem")[curPos + j]).animate(
+-            {
+-              fontSize: that.maxFontSize - Math.abs(j) * that.navSpace + "px",
+-            },
+-            50
+-          );
+-        }
+-        curPos += val;
+-        if (curPos != index + val) {
+-          that.setSize(curPos, index, val);
+-        } else {
+-          that.curPos = index;
+-        }
+-      }, 25);
+-    },
+-    animate(index) {
+-      if (index == this.curPos) {
+-        return;
+-      } else if (index > this.curPos) {
+-        this.setSize(this.curPos, index, 1);
+-      } else {
+-        this.setSize(this.curPos, index, -1);
+-      }
+-    },
+-    click(item, index) {
+-      this.active = item
+-      this.$emit("updateSelected", item);
+-      this.animate(index);
+-    },
+-  },
+-};
+-</script>
+-
+-<style scoped>
+-#footer {
+-  position: relative;
+-  float: left;
+-  width: 100%;
+-  height: 100%;
+-  text-align: center;
+-  background-color: rgb(255, 255, 255);
+-}
+-
+-.navItem {
+-  font-family: "Lucida Console", Monaco, monospace;
+-  font-weight: bold;
+-  text-align: center;
+-  vertical-align: middle;
+-  font-size: 16px;
+-  /*margin: 0 2px;*/
+-  height: 50px;
+-  line-height: 50px;
+-  position: relative;
+-  float: left;
+-  color: black;
+-  -moz-user-select: -moz-none;
+-  -khtml-user-select: none;
+-  -webkit-user-select: none;
+-  -ms-user-select: none;
+-  user-select: none;
+-  /*clear: both;*/
+-}
+-
+-.navSeparator {
+-  width: 50px;
+-}
+-
+-.navClickable {
+-  width: auto;
+-  cursor: pointer;
+-}
+-
+-.navActive, .navClickable:hover {
+-  border-bottom: 2px solid black;
+-}
+-
+-#gamesnav {
+-  display: inline-block;
+-  position: relative;
+-}
+-</style>
+\ No newline at end of file
+diff --git a/src/components/Snake.vue b/src/components/Snake.vue
+deleted file mode 100644
+index b4e78bc..0000000
+--- a/src/components/Snake.vue
++++ /dev/null
+@@ -1,318 +0,0 @@
+-<template>
+-  <div id="snakeContainer" @click="clickHandler">
+-    <canvas ref="snakeCanvas" id="snakeCanvas" />
+-    <canvas
+-      ref="scoreCanvas"
+-      id="scoreCanvas"
+-      :style="{ 'font-size': scoreHeight + 'px' }"
+-    />
+-    <p id="snakePlayMessage" ref="snakePlayMessage" v-show="!isPlaying">
+-      Hit SPACE to Start!
+-    </p>
+-  </div>
+-</template>
+-
+-<script>
+-function Point(x, y) {
+-  this.x = x;
+-  this.y = y;
+-
+-  // gives next position according to current direction in dirTab.
+-  // Will be length-1 for head and 0 for tail (cleaner)
+-  this.incPos = function (point) {
+-    this.x += point.x;
+-    this.y += point.y;
+-  };
+-}
+-
+-export default {
+-  name: "Snake",
+-  data() {
+-    return {
+-      /*
+-       * CANVAS VARIABLES
+-       */
+-      snakeContainerPercentage: 0.8,
+-      dimension: 0,
+-      nbBlocks: 20,
+-      blockSize: 0,
+-      colors: {
+-        snake: "navy",
+-        block: "white",
+-        food: "#00FF00",
+-        background: "orange",
+-        score: "red",
+-      },
+-      /*
+-       * SNAKE VARIABLES
+-       */
+-      dirArr: undefined,
+-      cptArr: undefined,
+-      newDir: undefined,
+-      blockMatrix: undefined,
+-      snakeHead: undefined,
+-      cleaner: undefined,
+-      /*
+-       *	GAME VARIABLES
+-       */
+-      scoreInc: 100,
+-      scoreHeight: 41,
+-      score: 0,
+-      isPlaying: false,
+-      foodTimeoutMs: 1000,
+-      intervalTimeMs: 100,
+-      interval: undefined,
+-      foodTimeout: undefined,
+-    };
+-  },
+-  mounted() {
+-    this.$nextTick(() => {
+-      this.prepareGame();
+-    });
+-  },
+-  unmounted() {
+-    this.foodTimeout && clearTimeout(this.foodTimeout);
+-    this.interval && clearInterval(this.interval);
+-  },
+-  methods: {
+-    prepareGame() {
+-      this.initCanvas();
+-      this.initVars();
+-      this.initMatrix();
+-      this.dispScore();
+-      this.drawSnake();
+-
+-      document.addEventListener("keydown", this.starterKeydownHandler);
+-    },
+-    startGame() {
+-      document.removeEventListener("keydown", this.starterKeydownHandler);
+-      document.addEventListener("keydown", this.keydownHandler);
+-
+-      this.isPlaying = true;
+-      this.moveSnake();
+-      this.interval = setInterval(this.moveSnake, this.intervalTimeMs);
+-      this.addFood();
+-    },
+-    endGame() {
+-      document.removeEventListener("keydown", this.keydownHandler);
+-      this.isPlaying = false;
+-      this.foodTimeout && clearTimeout(this.foodTimeout);
+-      this.prepareGame();
+-      this.interval && clearInterval(this.interval);
+-    },
+-    initCanvas() {
+-      let snakeCanvas = this.$refs["snakeCanvas"];
+-      let scoreCanvas = this.$refs["scoreCanvas"];
+-
+-      let containerWidth = this.$refs.snakeCanvas.parentElement.offsetWidth;
+-      let containerHeight = this.$refs.snakeCanvas.parentElement.offsetHeight;
+-
+-      let minDim =
+-        Math.min(containerWidth, containerHeight) *
+-        this.snakeContainerPercentage;
+-      this.dimension = Math.floor(minDim / this.nbBlocks) * this.nbBlocks;
+-
+-      snakeCanvas.width = snakeCanvas.height = this.dimension;
+-      scoreCanvas.width = this.dimension;
+-      scoreCanvas.height = this.scoreHeight;
+-
+-      let canvasMarginProp = (containerHeight - this.dimension + 2) / 2 + "px ";
+-
+-      scoreCanvas.style.top = snakeCanvas.style.top = canvasMarginProp;
+-      scoreCanvas.style.left = snakeCanvas.style.left =
+-        (containerWidth - this.dimension + 2) / 2 + "px";
+-      this.$refs.snakePlayMessage.style.bottom = canvasMarginProp;
+-
+-      this.blockSize = this.dimension / this.nbBlocks;
+-      var ctx = scoreCanvas.getContext("2d");
+-      ctx.fillStyle = this.colors["block"];
+-      ctx.fillRect(0, 0, this.dimension, this.dimension);
+-    },
+-    initVars() {
+-      // snake's first position in the middle of our container
+-      this.dirArr = [new Point(1, 0)];
+-      this.cptArr = [1];
+-      this.blockMatrix = [];
+-      this.newDir = 0;
+-      this.score = 0;
+-
+-      this.snakeHead = new Point(
+-        parseInt(this.nbBlocks / 2) - 1,
+-        parseInt(this.nbBlocks / 2)
+-      );
+-      // Variable cleaner must be right behind the snake's tail
+-      this.cleaner = new Point(
+-        this.snakeHead.x - this.dirArr[0].x * (this.cptArr[0] + 1),
+-        this.snakeHead.y - this.dirArr[0].y * this.cptArr[0]
+-      );
+-    },
+-    initMatrix() {
+-      for (let i = 0; i < this.nbBlocks; i++) {
+-        let col = [];
+-        for (let j = 0; j < this.nbBlocks; j++) {
+-          col.push("block");
+-        }
+-        this.blockMatrix.push(col);
+-      }
+-    },
+-    drawSnake() {
+-      let tail = new Point(
+-        this.snakeHead.x - this.dirArr[0].x,
+-        this.snakeHead.y - this.dirArr[0].y
+-      );
+-      this.updateBlock(tail, "snake");
+-      this.updateBlock(this.snakeHead, "snake");
+-    },
+-    dispScore() {
+-      let ctx = this.$refs["scoreCanvas"].getContext("2d");
+-      ctx.font = this.scoreHeight + "px Impact";
+-      ctx.lineWidth = 1;
+-      ctx.fillStyle = this.colors["score"];
+-      ctx.clearRect(0, 0, this.dimension, this.scoreHeight);
+-      ctx.fillText(this.score, 2, 41);
+-    },
+-    updateBlock(point, type, size = this.blockSize) {
+-      this.blockMatrix[point.x][point.y] = type;
+-      this.colorBlock(point, this.colors[type], size);
+-    },
+-    colorBlock(point, color, size) {
+-      let ctx = this.$refs["snakeCanvas"].getContext("2d");
+-      ctx.lineWidth = 1;
+-      ctx.fillStyle = color;
+-
+-      let dim = size ? size : this.blockSize;
+-      ctx.fillRect(
+-        point.x * this.blockSize + (this.blockSize - dim) / 2,
+-        point.y * this.blockSize + (this.blockSize - dim) / 2,
+-        dim,
+-        dim
+-      );
+-    },
+-    collision() {
+-      return (
+-        this.snakeHead.x > this.nbBlocks - 1 ||
+-        this.snakeHead.x < 0 ||
+-        this.snakeHead.y > this.nbBlocks - 1 ||
+-        this.snakeHead.y < 0 ||
+-        this.getBlockType(this.snakeHead) == "snake"
+-      );
+-    },
+-    // Add the blocks to the container and fill them with blockColor
+-    getBlockType(point) {
+-      return this.blockMatrix[point.x][point.y];
+-    },
+-    moveSnake() {
+-      this.dirLock = false;
+-      this.snakeHead.incPos(this.dirArr[this.dirArr.length - 1]);
+-
+-      if (this.collision()) {
+-        this.endGame();
+-        return;
+-      } else if (this.getBlockType(this.snakeHead) != "food") {
+-        this.cleaner.incPos(this.dirArr[0]);
+-        if (this.cptArr[0] == 0) {
+-          this.cptArr.shift();
+-          this.dirArr.shift();
+-        }
+-        this.cptArr[0]--;
+-      } else {
+-        this.updScore();
+-        this.addFood();
+-      }
+-
+-      this.cptArr[this.cptArr.length - 1]++;
+-      this.updateBlock(this.snakeHead, "snake");
+-      this.updateBlock(this.cleaner, "block");
+-    },
+-    keydownHandler(e) {
+-      if (this.dirLock) {
+-        return;
+-      }
+-      let dir;
+-      if (e.key == "ArrowLeft") dir = new Point(-1, 0);
+-      else if (e.key == "ArrowUp") dir = new Point(0, -1);
+-      else if (e.key == "ArrowRight") dir = new Point(1, 0);
+-      else if (e.key == "ArrowDown") dir = new Point(0, 1);
+-      else return;
+-      if (Math.abs(dir.x) != Math.abs(this.dirArr[this.dirArr.length - 1].x)) {
+-        this.dirArr.push(dir);
+-        this.cptArr.push(0);
+-        this.dirLock = true;
+-      }
+-    },
+-    starterKeydownHandler(e) {
+-      if (e.code == "Space") {
+-        this.startGame();
+-      }
+-    },
+-    updScore() {
+-      this.incScore();
+-      this.dispScore();
+-    },
+-    getRandPos() {
+-      return Math.floor(Math.random() * (this.nbBlocks - 1));
+-    },
+-    incScore() {
+-      this.score += this.scoreInc;
+-    },
+-    addFood() {
+-      let time = Math.floor(Math.random() * this.foodTimeoutMs) + 1;
+-
+-      let that = this;
+-
+-      this.foodTimeout = setTimeout(function () {
+-        let foodPnt = new Point();
+-
+-        do {
+-          foodPnt = new Point(that.getRandPos(), that.getRandPos());
+-        } while (that.getBlockType(foodPnt) != "block");
+-
+-        that.updateBlock(foodPnt, "food", that.blockSize / 2);
+-      }, time);
+-    },
+-  },
+-};
+-</script>
+-
+-
+-<style>
+-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+-
+-#scoreCanvas {
+-  z-index: 2;
+-  position: absolute;
+-  top: 0;
+-  left: 0;
+-}
+-
+-#snakeContainer {
+-  position: relative;
+-  width: 100%;
+-  height: 100%;
+-}
+-
+-#snakeCanvas {
+-  position: absolute;
+-  border: 1px solid black;
+-  background-color: white;
+-  z-index: 1;
+-}
+-
+-#snakePlayMessage {
+-  font-size: 30px;
+-  width: 100%;
+-  text-align: center;
+-  color: red;
+-  position: absolute;
+-  z-index: 2;
+-  bottom: 0;
+-  font-family: "Press Start 2P", cursive;
+-  animation: blink 1s steps(4, start) infinite;
+-}
+-
+-@keyframes blink {
+-  to {
+-    visibility: hidden;
+-  }
+-}
+-</style>
+diff --git a/src/components/WaveAnimation.vue b/src/components/WaveAnimation.vue
+deleted file mode 100644
+index e629944..0000000
+--- a/src/components/WaveAnimation.vue
++++ /dev/null
+@@ -1,104 +0,0 @@
+-<template>
+-  <div style="height: 100%; overflow: none">
+-    <canvas ref="canvas" />
+-  </div>
+-</template>
+-
+-<script>
+-export default {
+-  name: "WaveAnimation",
+-  data() {
+-    return {
+-      squareSize: 50,
+-      littleSquareSize: 6,
+-      angleIncrement: 26,
+-      animationIncrement: 1,
+-      animationSpeedMs: 10,
+-      color: "white",
+-    };
+-  },
+-  mounted() {
+-    this.$nextTick(() => {
+-      this.init();
+-      this.animate();
+-    });
+-  },
+-  unmounted() {
+-    clearInterval(this.interval);
+-  },
+-  methods: {
+-    init() {
+-      let canvas = this.$refs["canvas"];
+-
+-      let containerWidth = this.$refs["canvas"].parentElement.offsetWidth;
+-      let containerHeight = this.$refs["canvas"].parentElement.offsetHeight;
+-
+-      this.squaresCnt = {
+-        lign: Math.trunc(containerWidth / this.squareSize),
+-        col: Math.trunc(containerHeight / this.squareSize),
+-      };
+-
+-      canvas.width = this.squareSize * this.squaresCnt.lign;
+-      canvas.height = this.squareSize * this.squaresCnt.col;
+-
+-      canvas.style.margin =
+-        Math.trunc((containerHeight - canvas.height) / 2) +
+-        "px " +
+-        Math.trunc((containerWidth - canvas.width) / 2) +
+-        "px";
+-    },
+-    draw(angleOffset) {
+-      let ctx = this.$refs["canvas"].getContext("2d");
+-      ctx.clearRect(
+-        0,
+-        0,
+-        this.$refs["canvas"].width,
+-        this.$refs["canvas"].height
+-      );
+-      ctx.fillStyle = this.color;
+-
+-      for (let i = 0; i < this.squaresCnt.lign; i++) {
+-        for (let j = 0; j < this.squaresCnt.col; j++) {
+-          let [xPos, yPos] = this.getPos(
+-            (angleOffset + (i + j) * this.angleIncrement) % 360,
+-            Math.trunc(this.squareSize / 2 - this.littleSquareSize - 1)
+-          );
+-
+-          ctx.save();
+-          ctx.fillStyle = this.color;
+-          ctx.translate(
+-            xPos + (i + 1 / 2) * this.squareSize,
+-            yPos + (j + 1 / 2) * this.squareSize
+-          );
+-          ctx.rotate(
+-            -this.toRad((angleOffset + (i + j) * this.angleIncrement) % 360)
+-          );
+-          ctx.fillRect(0, 0, this.littleSquareSize, this.littleSquareSize);
+-          ctx.restore();
+-        }
+-      }
+-    },
+-    animate() {
+-      let angleOffset = 0;
+-      this.interval = setInterval(() => {
+-        this.draw((angleOffset += this.animationIncrement));
+-      }, this.animationSpeedMs);
+-    },
+-    stopAnimation() {
+-      clearInterval(this.interval);
+-    },
+-    toRad(degrees) {
+-      return (Math.PI / 180) * degrees;
+-    },
+-    getPos(angle, radius) {
+-      return [
+-        Math.round(Math.cos(this.toRad(angle)) * radius),
+-        Math.round(Math.sin(this.toRad(angle)) * radius),
+-      ];
+-    },
+-  },
+-};
+-</script>
+-
+-<style>
+-</style>
+\ No newline at end of file
+diff --git a/src/main.js b/src/main.js
+deleted file mode 100644
+index 01433bc..0000000
+--- a/src/main.js
++++ /dev/null
+@@ -1,4 +0,0 @@
+-import { createApp } from 'vue'
+-import App from './App.vue'
+-
+-createApp(App).mount('#app')
